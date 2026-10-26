@@ -3,7 +3,7 @@
 <meta name="description" content="Lumini: thoughtfully curated toys for ages 0-15 and everyday helpers for moms. Shipping to the US and Canada.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600;700;800&display=swap">
 <style>
 /* Layout: warm storefront. Sticky header, wide content column (1200px), soft colour bands per age group, card grid for products. */
 :root{
@@ -11,6 +11,8 @@
   --coral:#EE6A55; --coral-ink:#FFFFFF; --coral-soft:#FFE3D8;
   --mint:#DDF2E8; --mint-ink:#23705F; --butter:#FFF1C9; --sky:#DDEBFA; --lilac:#EDE4FA; --peach:#FFE6D6;
   --promo:#2B2340; --promo-ink:#FFF8F1;
+  --sun:#FFC83D; --teal:#22A6A0; --pink:#FF7BAC; --foot:#2B2340; --foot-ink:#F7EFE7; --foot-muted:#C9C0D6;
+  --hand:"Gochi Hand","Comic Sans MS",cursive;
   --display:"Poppins",ui-rounded,"Segoe UI",system-ui,sans-serif;
   --body:"Nunito","Segoe UI",system-ui,-apple-system,sans-serif;
   --r-sm:10px; --r:18px; --r-lg:28px;
@@ -20,12 +22,12 @@
   --bg:#1B1724; --surface:#252033; --ink:#F7EFE7; --muted:#B9AFC8; --line:#383049;
   --coral:#FF8470; --coral-ink:#1B1724; --coral-soft:#44292A;
   --mint:#203A33; --mint-ink:#8FDCC5; --butter:#3A3322; --sky:#22303F; --lilac:#2F2840; --peach:#3E2C27;
-  --promo:#F7EFE7; --promo-ink:#1B1724; --shadow:0 10px 30px -18px rgba(0,0,0,.7); color-scheme:dark}}
+  --promo:#F7EFE7; --promo-ink:#1B1724; --shadow:0 10px 30px -18px rgba(0,0,0,.7); --sun:#E0A92A; --teal:#2FBDB6; --pink:#E86A98; --foot:#120F19; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#1B1724; --surface:#252033; --ink:#F7EFE7; --muted:#B9AFC8; --line:#383049;
   --coral:#FF8470; --coral-ink:#1B1724; --coral-soft:#44292A;
   --mint:#203A33; --mint-ink:#8FDCC5; --butter:#3A3322; --sky:#22303F; --lilac:#2F2840; --peach:#3E2C27;
-  --promo:#F7EFE7; --promo-ink:#1B1724; --shadow:0 10px 30px -18px rgba(0,0,0,.7); color-scheme:dark}
+  --promo:#F7EFE7; --promo-ink:#1B1724; --shadow:0 10px 30px -18px rgba(0,0,0,.7); --sun:#E0A92A; --teal:#2FBDB6; --pink:#E86A98; --foot:#120F19; color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -261,6 +263,119 @@ footer.site{background:var(--surface);border-top:1px solid var(--line);margin-to
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--bg);padding:.75rem 1.2rem;border-radius:999px;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:80;max-width:calc(100% - 32px)}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* ---- v2: playful upgrades (award-site motion + kids-store patterns) ---- */
+.hand{font-family:var(--hand);font-size:1.25rem;color:var(--ink);line-height:1.1}
+.btn-big{padding:1rem 1.8rem;font-size:1.08rem;box-shadow:0 8px 0 -2px color-mix(in srgb,var(--coral) 45%,var(--ink))}
+.btn-big:hover{transform:translateY(-2px)}
+.btn-white{background:var(--surface);color:var(--ink);margin-top:1.2rem}
+.hero2{position:relative;overflow:hidden;background:var(--peach)}
+.blob-bg{position:absolute;inset:0}
+.blob-bg svg{width:100%;height:100%;display:block}
+.blob-bg .b1{animation:drift 14s ease-in-out infinite alternate}
+.blob-bg .b2{animation:drift 18s ease-in-out infinite alternate-reverse}
+@keyframes drift{to{transform:translate(-30px,14px)}}
+.hero2-in{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center;padding-block:3.5rem 5rem}
+.hero2-copy{min-width:0}
+.mega{font-size:clamp(2.6rem,7.4vw,5.6rem);font-weight:800;letter-spacing:-.035em;line-height:.98;margin-top:.6rem}
+.mega .w{display:inline-block;animation:pop .7s cubic-bezier(.2,1.4,.4,1) both;animation-delay:calc(var(--i)*90ms)}
+.mega .w:nth-child(3){color:var(--coral)}
+@keyframes pop{from{transform:translateY(.35em) rotate(-4deg)}to{transform:none}}
+.hero2 .lead{font-size:1.15rem;margin-top:1.1rem;max-width:44ch;color:var(--ink);opacity:.8}
+.hero2 .ctas{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.6rem}
+.feat{display:inline-flex;align-items:center;gap:.8rem;margin-top:1.6rem;background:var(--surface);border-radius:999px;padding:.4rem 1rem .4rem .4rem;text-decoration:none;box-shadow:var(--shadow);max-width:100%}
+.feat svg{width:52px;height:52px;border-radius:999px;flex:none}
+.feat span{display:flex;flex-direction:column;line-height:1.2;min-width:0}
+.feat small{font-size:.72rem;font-weight:800;color:var(--mint-ink);text-transform:uppercase;letter-spacing:.06em}
+.feat em{font-style:normal;font-weight:700;color:var(--muted);font-size:.9rem}
+.feat-go{width:32px;height:32px;border-radius:999px;background:var(--coral);color:var(--coral-ink);display:grid!important;place-items:center;font-weight:800}
+.hero2-art{position:relative;aspect-ratio:1/1;max-width:100%}
+.toy{position:absolute;border-radius:32px;overflow:hidden;box-shadow:0 24px 40px -24px rgba(43,35,64,.5);animation:bob 5s ease-in-out infinite}
+.toy svg{display:block;width:100%;height:100%}
+.t1{width:52%;left:4%;top:8%;transform:rotate(-6deg);animation-delay:0s}
+.t2{width:40%;right:2%;top:2%;animation-delay:-1.2s;border-radius:50%}
+.t3{width:38%;right:6%;bottom:6%;animation-delay:-2.4s}
+.t4{width:34%;left:14%;bottom:2%;animation-delay:-3.4s;border-radius:50%}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.note1{position:absolute;left:44%;top:52%;rotate:-6deg}
+.note2{position:absolute;right:0;top:44%;rotate:5deg;color:var(--mint-ink)}
+.scallop{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:28px;display:block}
+@media (max-width:820px){.hero2-in{grid-template-columns:1fr;padding-block:2.5rem 4rem}.hero2-art{max-width:400px;width:100%;justify-self:center}}
+.marquee{background:var(--ink);color:var(--bg);overflow:hidden;padding-block:.85rem;font:600 .95rem var(--display)}
+.mq{display:flex;gap:1.6rem;width:max-content;animation:mq 34s linear infinite;align-items:center}
+.mq i{font-style:normal;color:var(--sun)}
+.marquee:hover .mq{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.perk{display:flex;gap:1rem;align-items:flex-start;border-radius:var(--r);padding:1.3rem;color:#2B2340}
+.perk svg{flex:none;width:44px;height:44px;padding:10px;border-radius:14px;background:rgba(255,255,255,.55)}
+.perk h3{font-size:1.05rem}.perk p{font-size:.9rem;margin-top:.25rem;opacity:.85}
+.p-coral{background:#FFC9BC}.p-sun{background:#FFE08A}.p-teal{background:#AEE5E1}
+@media (max-width:820px){.perks{grid-template-columns:1fr}}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:1.2rem}
+.steps div{background:var(--surface);border-radius:var(--r-sm);padding:.8rem;display:flex;flex-direction:column;gap:.2rem;font-weight:700;font-size:.92rem}
+.steps b{font:800 1.4rem var(--display);color:var(--coral)}
+@media (max-width:440px){.steps{grid-template-columns:1fr}}
+.about-art{position:relative}
+.note3{position:absolute;left:1.2rem;bottom:1rem;font-size:1.6rem;background:var(--surface);padding:.2rem .8rem;border-radius:12px;rotate:-4deg}
+.sale{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center;border-radius:var(--r-lg);padding:2.5rem;background:linear-gradient(120deg,var(--teal),color-mix(in srgb,var(--teal) 60%,var(--pink)));color:#fff;overflow:hidden}
+.sale-h{font-size:clamp(1.8rem,4.4vw,3rem);font-weight:800;margin-top:.4rem}
+.sale .eyebrow{color:#fff}
+.sale-art{border-radius:var(--r);overflow:hidden;max-width:300px;justify-self:center;width:100%;rotate:4deg}
+.sale-art svg{display:block;width:100%}
+.count{display:flex;align-items:center;gap:.8rem;margin-top:1.2rem}
+.count b{font:800 3rem var(--display);line-height:1;font-variant-numeric:tabular-nums}
+.count span{font-weight:700;font-size:.9rem;line-height:1.3}
+.sticker{position:absolute;right:1.4rem;bottom:1.4rem;width:112px;height:112px;border-radius:50%;background:var(--sun);display:grid;place-items:center;text-decoration:none;color:#2B2340}
+.sticker svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 14s linear infinite}
+.sticker text{font:800 11.5px var(--display);letter-spacing:.12em;fill:#2B2340}
+.sticker span{font-size:1.8rem}
+@keyframes spin{to{rotate:360deg}}
+@media (max-width:820px){.sale{grid-template-columns:1fr;padding:1.6rem}.sticker{width:88px;height:88px;right:1rem;top:1rem;bottom:auto}.sale-art{display:none}}
+.magnet{align-items:center}
+.guide{display:grid;place-items:center}
+.sheet{background:#fff;color:#2B2340;border-radius:16px;padding:1.4rem;width:min(100%,340px);display:flex;flex-direction:column;gap:.55rem;box-shadow:0 30px 50px -30px rgba(43,35,64,.6);rotate:3deg}
+.sheet b{font:800 1.15rem "Poppins",sans-serif}
+.srow{display:flex;justify-content:space-between;gap:.5rem;padding:.6rem .8rem;border-radius:10px;font-weight:800}
+.srow em{font-style:normal;font-weight:600;font-size:.85rem}
+.sheet small{color:#6B6380;text-align:right}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.post{display:flex;flex-direction:column;gap:.4rem;text-decoration:none;min-width:0}
+.post-img{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;max-width:100%}
+.post-img svg{width:100%;height:100%;display:block;transition:scale .4s}
+.post:hover .post-img svg{scale:1.05}
+.post .age-tag{margin-top:.5rem;font-size:.75rem;font-weight:800;color:var(--mint-ink);text-transform:uppercase;letter-spacing:.06em}
+@media (max-width:820px){.posts{grid-template-columns:1fr}}
+.help{display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;background:#4C8DD6;color:#fff;border-radius:var(--r-lg);padding:1.6rem 2rem}
+.help .btn-white{margin-top:0}
+.help-ico{width:84px;height:84px;border-radius:50%;overflow:hidden}
+.help-ico svg{width:100%;height:100%;display:block}
+@media (max-width:720px){.help{grid-template-columns:1fr;text-align:left}}
+/* card hover: lift + tilt image, quick add */
+.card{transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.card .img svg{transition:scale .35s,rotate .35s}
+.card:hover .img svg{scale:1.06;rotate:-2deg}
+.wish{position:absolute;top:.6rem;right:.6rem;width:36px;height:36px;border-radius:50%;border:none;background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.wish svg{width:18px;height:18px}
+.wish[aria-pressed="true"]{color:var(--coral)}
+.wish[aria-pressed="true"] svg{fill:currentColor}
+.add{transition:background .15s,transform .15s}
+.add:active{transform:scale(.94)}
+.cart-btn.bump b{animation:bump .5s}
+@keyframes bump{40%{transform:scale(1.5)}}
+/* scroll reveal (progressive; content is visible without it) */
+@supports (animation-timeline: view()){
+  .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
+  @keyframes rise{from{transform:translateY(32px) scale(.98)}to{transform:none}}
+}
+/* dark footer with scalloped top */
+footer.site{position:relative;background:var(--foot);color:var(--foot-ink);border-top:none;margin-top:4rem}
+footer.site::before{content:"";position:absolute;left:0;right:0;top:-27px;height:28px;background:radial-gradient(circle at 20px 28px,var(--foot) 20px,transparent 21px) 0 0/40px 28px repeat-x}
+footer.site .muted,.fgrid a,.legal{color:var(--foot-muted)}
+.fgrid a:hover{color:var(--foot-ink)}
+.legal{border-top-color:rgba(255,255,255,.15)}
+footer.site .logo svg circle:first-child{fill:var(--coral)}
+@media (prefers-reduced-motion:reduce){.mq,.toy,.sticker svg,.blob-bg path,.mega .w{animation:none!important}}
 </style>
 
 <div class="promo"><div class="wrap">Free shipping on US &amp; Canada orders over $49 · 30-day easy returns</div></div>
@@ -289,7 +404,7 @@ footer.site{background:var(--surface);border-top:1px solid var(--line);margin-to
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <a class="logo" href="#home" style="font-size:1.4rem">lumini</a>
+        <a class="logo" href="#home" style="font-size:1.6rem;color:var(--foot-ink)">lumini</a>
         <p class="muted small" style="margin-top:.6rem;max-width:34ch">Toys picked for each stage of childhood, and everyday helpers for the moms raising them. Curated by Lumini, shipped to the US and Canada.</p>
       </div>
       <div><h4>Shop</h4><ul>
@@ -381,11 +496,11 @@ const money=n=>"$"+n.toFixed(2);
 const ageLabel=a=>a==="mom"?"For Mom":"Ages "+AGES[a].range;
 
 /* ---------- cart ---------- */
-let cart={};
+let cart={},wish={};
 try{cart=JSON.parse(localStorage.getItem("lumini-cart")||"{}")||{}}catch(e){cart={}}
 function saveCart(){try{localStorage.setItem("lumini-cart",JSON.stringify(cart))}catch(e){} updateCount()}
 function updateCount(){document.getElementById("cartCount").textContent=Object.values(cart).reduce((s,q)=>s+q,0)}
-function addToCart(id,q=1){cart[id]=(cart[id]||0)+q;saveCart();toast(`Added ${byId[id].n} to your cart`)}
+function addToCart(id,q=1){cart[id]=(cart[id]||0)+q;saveCart();const cb=document.querySelector(".cart-btn");cb.classList.remove("bump");void cb.offsetWidth;cb.classList.add("bump");toast(`Added ${byId[id].n} to your cart`)}
 function cartLines(){return Object.entries(cart).filter(([id,q])=>byId[id]&&q>0).map(([id,q])=>({p:byId[id],q}))}
 const FREE=49;
 function toast(t){const el=document.getElementById("toast");el.textContent=t;el.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove("show"),2200)}
@@ -399,8 +514,8 @@ const ico={
  box:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg>`
 };
 function card(p){
-  return `<article class="card">
-  <a class="img" href="#p-${p.id}" aria-label="${p.n}">${art(p.k,p.pal)}${p.bundle?'<span class="badge coral">Lumini bundle</span>':p.best?'<span class="badge">Parent favourite</span>':''}</a>
+  return `<article class="card reveal">
+  <a class="img" href="#p-${p.id}" aria-label="${p.n}">${art(p.k,p.pal)}${p.bundle?'<span class="badge coral">Lumini bundle</span>':p.best?'<span class="badge">Parent favourite</span>':''}</a><button class="wish" data-wish="${p.id}" aria-label="Save ${p.n} to wishlist" aria-pressed="${!!wish[p.id]}">${ico.heart}</button>
   <div class="body"><span class="age-tag">${ageLabel(p.age)}</span><h3><a href="#p-${p.id}">${p.n}</a></h3><p class="blurb">${p.b}</p>
   <div class="row"><span class="price">${money(p.price)}${p.was?`<s>${money(p.was)}</s>`:''}</span><button class="add" data-add="${p.id}">Add to cart</button></div></div></article>`;
 }
@@ -414,35 +529,63 @@ function pageHero(crumb,eyebrow,title,text,band){return `<div class="${band||''}
 
 /* ---------- pages ---------- */
 const V={};
-V.home=()=>`
-<div class="wrap hero">
-  <div><p class="eyebrow">Curated by Lumini</p><h1 style="margin-top:.5rem">Toys for every stage, <em>chosen with care</em></h1>
-  <p class="lead">Safety-checked toys for babies, toddlers and big kids, plus everyday helpers for mom. Shop by age and find the right pick in minutes.</p>
-  <div class="ctas"><a class="btn btn-primary" href="#shop">Shop by age</a><a class="btn btn-ghost" href="#gifts">Holiday gift guide</a></div></div>
-  <div class="hero-art">${heroArt()}</div>
+V.home=()=>{
+ const cut=new Date("2026-12-12T23:59:00-05:00"), days=Math.max(0,Math.ceil((cut-new Date())/864e5));
+ const words="Little hands, big wonder.".split(" ");
+ return `
+<div class="hero2"><div class="blob-bg" aria-hidden="true">${blobs()}</div>
+ <div class="wrap hero2-in">
+  <div class="hero2-copy"><p class="eyebrow">Curated by Lumini · ages 0 to 15</p>
+   <h1 class="mega" aria-label="Little hands, big wonder.">${words.map((w,i)=>`<span class="w" style="--i:${i}" aria-hidden="true">${w}</span>`).join(" ")}</h1>
+   <p class="lead">Safety-checked toys for babies, toddlers and big kids, plus everyday helpers for mom. Pick an age and we'll show you the toys that fit.</p>
+   <div class="ctas"><a class="btn btn-primary btn-big" href="#shop">Shop by age <span aria-hidden="true">→</span></a><a class="btn btn-ghost" href="#gifts">Holiday gift guide</a></div>
+   <a class="feat" href="#p-stack-glow-rings">${art("rings","peach")}<span><small>Parent favourite</small><b>Stack &amp; Glow Rings</b><em>${money(24)}</em></span><span class="feat-go" aria-hidden="true">→</span></a>
+  </div>
+  <div class="hero2-art" aria-hidden="true">
+   <div class="toy t1">${art("rings","peach")}</div><div class="toy t2">${art("robot","sky")}</div><div class="toy t3">${art("blocks","butter")}</div><div class="toy t4">${art("duck","mint")}</div>
+   <span class="hand note1">ships to the US &amp; Canada ↓</span><span class="hand note2">safety-checked ✓</span>
+  </div>
+ </div>
+ <svg class="scallop" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40V20${Array.from({length:30},(_,i)=>` Q${i*40+20} -4 ${i*40+40} 20`).join("")}V40Z" fill="var(--bg)"/></svg>
 </div>
-<div class="wrap"><div class="trust">
-  <div><i>${ico.shield}</i><p>Safety-checked<span>Meets US &amp; Canada toy rules</span></p></div>
-  <div><i>${ico.truck}</i><p>Free shipping over $49<span>US &amp; Canada</span></p></div>
-  <div><i>${ico.back}</i><p>30-day returns<span>Unopened or faulty items</span></p></div>
-  <div><i>${ico.heart}</i><p>Picked by parents<span>Every toy tested at home first</span></p></div>
-</div></div>
-<section><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Shop by age</p><h2>Find the right toy for right now</h2></div><a class="link" href="#shop">See all toys</a></div>
-<div class="ages">${["0-2","2-5","5-15","mom"].map(a=>{const g=AGES[a];const k={"0-2":"rattle","2-5":"blocks","5-15":"robot",mom:"pillow"}[a];return `<a class="age band-${{peach:"peach",mint:"mint",sky:"sky",blush:"lilac"}[g.pal]}" href="#${a==="mom"?"moms-corner":"age-"+a}"><span class="num">${g.range}${a==="mom"?"":"<small>yrs</small>"}</span><h3>${g.name}</h3><p>${g.line}</p><span class="go">Shop now →</span>${art(k,g.pal).replace('<rect width="200" height="200"','<rect width="0" height="0"')}</a>`}).join("")}</div></div></section>
-<section style="padding-top:0"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Parent favourites</p><h2>Best sellers this month</h2></div><a class="link" href="#shop">Shop all</a></div>${grid(P.filter(p=>p.best&&!p.bundle).slice(0,4))}</div></section>
-<section class="band-butter"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Lumini exclusive bundles</p><h2>Ready-made sets, better together</h2></div><p class="muted">We pair toys that work well together and pack them in one gift-ready box, priced below buying each piece on its own.</p></div>
-<div class="bundles">${P.filter(p=>p.bundle&&p.age!=="mom").map(p=>`<a class="bundle" href="#p-${p.id}">${art(p.k,p.pal)}<div><span class="age-tag small muted">${ageLabel(p.age)}</span><h3 style="margin-top:.2rem">${p.n}</h3><p class="small muted" style="margin-top:.2rem">${p.b}</p><p style="margin-top:.4rem"><span class="price">${money(p.price)}</span> <span class="save">Save ${money(p.was-p.price)}</span></p></div></a>`).join("")}</div></div></section>
-<section><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Holiday gift guide 2026</p><h2>Gifts by budget</h2></div><a class="link" href="#gifts">Open the gift guide</a></div>
-<div class="budgets">${[[25,"Stocking stuffers"],[50,"Great gifts"],[100,"Big wow"],[0,"Gift bundles"]].map(([b,t])=>`<a class="budget" href="#gifts"><span class="muted small">${t}</span><b>${b?"Under $"+b:"Bundles"}</b><span class="link small">Browse →</span></a>`).join("")}</div>
-<p class="note">Order by <b>December 12</b> for standard delivery before December 25 (US) · <b>December 9</b> for Canada.</p></div></section>
-<section class="band-lilac"><div class="wrap split"><div class="art">${art("pillow","blush",1)}</div>
-<div><p class="eyebrow">Mom's Corner</p><h2 style="margin-top:.4rem">Something for the one doing all the work</h2><p class="muted" style="margin-top:.8rem">Feeding pillows, smarter diaper bags and small comforts for long nights. Thoughtful upgrades for new and experienced moms.</p>
-<ul><li>Cloud Nursing Pillow</li><li>Everyday Diaper Backpack</li><li>Mama Unwind Self-Care Box</li></ul><a class="btn btn-primary" style="margin-top:1.4rem" href="#moms-corner">Visit Mom's Corner</a></div></div></section>
-<section><div class="wrap"><div class="sec-head"><div><p class="eyebrow">How we choose</p><h2>Every toy passes four checks</h2></div></div>
-<div class="facts" style="grid-template-columns:repeat(4,1fr)">${[["Safe","Meets US CPSIA and Canada CCPSA rules for its age group, with the right age labels."],["Lasting","Built to survive drops, chewing and months of play."],["Purposeful","Supports a real skill: grasping, language, building, logic."],["Loved","Tested with real kids before it reaches the shop."]].map(([h,t])=>`<div class="panel"><h3>${h}</h3><p class="muted small" style="margin-top:.4rem">${t}</p></div>`).join("")}</div></div></section>
-<section style="padding-top:0"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">What parents say</p><h2>Reviews</h2></div><p class="small muted">Sample layout. Real verified reviews will appear here after launch.</p></div>
-<div class="quotes">${[["The rings were the first toy my daughter reached for every morning.","Review placeholder · Ages 0–2"],["Magnetic tiles kept both kids building for a whole snow day.","Review placeholder · Ages 2–5"],["Code-a-Bot got my son into coding without another screen.","Review placeholder · Ages 5–15"]].map(([q,w])=>`<blockquote class="quote" style="margin:0"><p>“${q}”</p><footer>${w}</footer></blockquote>`).join("")}</div></div></section>
-${newsletter()}`;
+<div class="marquee" aria-label="Why parents shop Lumini"><div class="mq">${Array(2).fill(["Safety-checked for US &amp; Canada rules","Free shipping over $49","30-day easy returns","Free gift notes","Lumini exclusive bundles","Real people reply in 1 business day"].map(t=>`<span>${t}</span><i aria-hidden="true">✦</i>`).join("")).join("")}</div></div>
+<section><div class="wrap"><div class="perks">
+ <div class="perk p-coral">${ico.shield}<div><h3>Safe for their stage</h3><p>Every toy meets US CPSIA and Canada CCPSA rules for its age group.</p></div></div>
+ <div class="perk p-sun">${ico.truck}<div><h3>Free shipping over $49</h3><p>Tracked delivery to every US state and Canadian province.</p></div></div>
+ <div class="perk p-teal">${ico.back}<div><h3>30-day easy returns</h3><p>Not right? Send it back. Faulty items are on us.</p></div></div>
+</div></div></section>
+<section style="padding-top:0"><div class="wrap"><div class="sec-head reveal"><div><p class="eyebrow">Shop by age</p><h2>Who are we shopping for today?</h2></div><a class="link" href="#shop">See all toys</a></div>
+<div class="ages">${["0-2","2-5","5-15","mom"].map(a=>{const g=AGES[a];const k={"0-2":"rattle","2-5":"blocks","5-15":"robot",mom:"pillow"}[a];return `<a class="age reveal band-${{peach:"peach",mint:"mint",sky:"sky",blush:"lilac"}[g.pal]}" href="#${a==="mom"?"moms-corner":"age-"+a}"><span class="num">${g.range}${a==="mom"?"":"<small>yrs</small>"}</span><h3>${g.name}</h3><p>${g.line}</p><span class="go">Shop now →</span>${art(k,g.pal).replace('<rect width="200" height="200"','<rect width="0" height="0"')}</a>`}).join("")}</div></div></section>
+<section style="padding-top:0"><div class="wrap"><div class="sec-head reveal"><div><p class="eyebrow">Parent favourites</p><h2>What families are buying</h2></div>
+ <div class="chips" role="tablist" aria-label="Product lists">${[["best","Best sellers"],["new","Under $25"],["stem","Learning & STEM"]].map(([k,t],i)=>`<button class="chip" role="tab" data-tab="${k}" aria-pressed="${(V._tab||"best")===k}">${t}</button>`).join("")}</div></div>
+ <div id="tabGrid">${tabGrid(V._tab||"best")}</div></div></section>
+<section class="band-butter"><div class="wrap split"><div class="art reveal about-art">${art("bear","peach",1)}<span class="hand note3">hi, we're Lumini!</span></div>
+ <div class="reveal"><p class="eyebrow">Why Lumini</p><h2 style="margin-top:.4rem">A short list of great toys beats a giant aisle</h2>
+ <p class="muted" style="margin-top:.8rem">We pick a small range for each stage of childhood and do the safety homework for you. Every toy has to be safe for its age, built for real play, and good for something: a new skill, a calmer bath time, a quiet half hour.</p>
+ <div class="steps">${[["1","Pick their age"],["2","Choose from a short list"],["3","We ship it, gift-ready"]].map(([n,t])=>`<div><b>${n}</b><span>${t}</span></div>`).join("")}</div>
+ <a class="btn btn-ghost" style="margin-top:1.4rem" href="#about">Read our story</a></div></div></section>
+<section><div class="wrap"><div class="sale reveal">
+ <div><p class="eyebrow" style="color:inherit;opacity:.85">Holiday gift guide 2026</p><h2 class="sale-h">Gifts they'll still love in March</h2>
+ <p style="margin-top:.6rem;max-width:44ch">Order by December 12 for standard delivery before December 25 (December 9 for Canada).</p>
+ <div class="count"><b>${days}</b><span>days left to order<br>for holiday delivery</span></div>
+ <a class="btn btn-white" href="#gifts">Open the gift guide</a></div>
+ <div class="sale-art" aria-hidden="true">${art("gift","peach",1)}</div>
+ <a class="sticker" href="#gifts" aria-label="Shop gifts"><svg viewBox="0 0 120 120"><defs><path id="circ" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs><text><textPath href="#circ">SHOP GIFTS · SHOP GIFTS · SHOP GIFTS ·</textPath></text></svg><span>🎁</span></a>
+</div></div></section>
+<section style="padding-top:0"><div class="wrap"><div class="sec-head reveal"><div><p class="eyebrow">Lumini exclusive bundles</p><h2>Ready-made sets, better together</h2></div><p class="muted">Toys that play well together in one gift-ready box, priced below buying each piece on its own.</p></div>
+<div class="bundles">${P.filter(p=>p.bundle&&p.age!=="mom").map(p=>`<a class="bundle reveal" href="#p-${p.id}">${art(p.k,p.pal)}<div><span class="age-tag small muted">${ageLabel(p.age)}</span><h3 style="margin-top:.2rem">${p.n}</h3><p class="small muted" style="margin-top:.2rem">${p.b}</p><p style="margin-top:.4rem"><span class="price">${money(p.price)}</span> <span class="save">Save ${money(p.was-p.price)}</span></p></div></a>`).join("")}</div></div></section>
+<section class="band-mint"><div class="wrap split magnet"><div class="reveal"><p class="eyebrow">Free for new subscribers</p><h2 style="margin-top:.4rem">Get the Age-by-Age Play Guide, plus 10% off</h2>
+ <p class="muted" style="margin-top:.6rem">A one-page printable of what to play at each stage from 0 to 15, with the skills each toy builds. Sent to your inbox with a 10% code for your first order.</p>
+ <form data-form="news" novalidate style="margin-top:1.2rem;display:flex;flex-direction:column;gap:.7rem"><div class="field"><label for="newsEmail">Email address</label><div class="inline"><input id="newsEmail" type="email" autocomplete="email" placeholder="you@example.com"><button class="btn btn-primary" type="submit">Send my guide</button></div></div>
+ <label class="check" for="newsConsent"><input id="newsConsent" type="checkbox"><span>Yes, send me the guide and Lumini emails about products and offers. I can unsubscribe at any time. See our <a class="link" href="#privacy">Privacy policy</a>.</span></label><p class="err" data-msg hidden></p></form></div>
+ <div class="guide reveal" aria-hidden="true"><div class="sheet"><b>Age-by-Age Play Guide</b>${[["0–2","Grasp, mouth, listen","#FFE3D3"],["2–5","Build, sort, pretend","#D7F0E6"],["5–8","Read, make, solve","#DCEBFA"],["8–15","Code, explore, invent","#ECE3FA"]].map(([a,t,c])=>`<div class="srow" style="background:${c}"><span>${a}</span><em>${t}</em></div>`).join("")}<small>shoplumini.com</small></div></div></div></section>
+<section><div class="wrap"><div class="sec-head reveal"><div><p class="eyebrow">What parents say</p><h2>Reviews</h2></div><p class="small muted">Sample layout. Real verified reviews will appear here after launch.</p></div>
+<div class="quotes">${[["The rings were the first toy my daughter reached for every morning.","Review placeholder · Ages 0–2"],["Magnetic tiles kept both kids building for a whole snow day.","Review placeholder · Ages 2–5"],["Code-a-Bot got my son into coding without another screen.","Review placeholder · Ages 5–15"]].map(([q,w])=>`<blockquote class="quote reveal" style="margin:0"><p>“${q}”</p><footer>${w}</footer></blockquote>`).join("")}</div></div></section>
+<section style="padding-top:0"><div class="wrap"><div class="sec-head reveal"><div><p class="eyebrow">From Mom's Corner</p><h2>Short reads for busy parents</h2></div><a class="link" href="#moms-corner">Visit Mom's Corner</a></div>
+<div class="posts">${[["candle","lilac","Self-care","Ten-minute resets for long days"],["bag","mint","Packing","What actually goes in the diaper bag"],["blocks","butter","Play","Toys that buy you a quiet half hour"]].map(([k,p,t,h])=>`<a class="post reveal" href="#moms-corner"><div class="post-img">${art(k,p,1)}</div><span class="age-tag">${t}</span><h3>${h}</h3><span class="small muted">3 min read · coming soon</span></a>`).join("")}</div></div></section>
+<section style="padding-top:0"><div class="wrap"><div class="help reveal"><div class="help-ico" aria-hidden="true">${art("bear","sky")}</div><div><h2 style="font-size:1.5rem">Stuck on a gift? Ask a real person.</h2><p>Tell us the age and your budget. We'll reply with three ideas within one business day.</p></div><a class="btn btn-white" href="#contact">Ask for ideas</a></div></div></section>`};
+function tabGrid(k){const l=k==="new"?P.filter(p=>p.price<25):k==="stem"?P.filter(p=>["STEM","Learning","Building","Puzzles"].includes(p.cat)):P.filter(p=>p.best&&!p.bundle);return grid(l.slice(0,4))}
+function blobs(){return `<svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice"><path class="b1" d="M-40 420C120 300 260 480 420 380S640 140 820 220 1080 420 1260 300V640H-40Z" fill="var(--sun)" opacity=".55"/><path class="b2" d="M700-40C760 80 940 60 1000 160S1180 260 1260 200V-40Z" fill="var(--pink)" opacity=".35"/><circle class="b3" cx="140" cy="110" r="70" fill="var(--teal)" opacity=".25"/></svg>`}
 
 function heroArt(){return `<svg viewBox="0 0 400 400" role="img" aria-label="Illustrated toys: stacking rings, blocks, a robot and a rattle"><rect width="400" height="400" fill="#FFE3D3"/>
 <circle cx="320" cy="80" r="44" fill="#F7B267" opacity=".5"/><circle cx="70" cy="330" r="60" fill="#D7F0E6"/>
@@ -649,6 +792,8 @@ window.addEventListener("hashchange",()=>render());
 document.addEventListener("click",e=>{
   const t=e.target.closest("button,a"); if(!t) return;
   if(t.id==="menuBtn"){const n=document.getElementById("mainNav");n.classList.toggle("open");t.setAttribute("aria-expanded",n.classList.contains("open"));return}
+  if(t.dataset.wish){const id=t.dataset.wish;wish[id]=!wish[id];t.setAttribute("aria-pressed",wish[id]);toast(wish[id]?"Saved to your wishlist":"Removed from your wishlist");return}
+  if(t.dataset.tab){V._tab=t.dataset.tab;document.getElementById("tabGrid").innerHTML=tabGrid(V._tab);document.querySelectorAll("[data-tab]").forEach(b=>b.setAttribute("aria-pressed",b===t));return}
   if(t.dataset.add){addToCart(t.dataset.add);return}
   if(t.dataset.addq){addToCart(t.dataset.addq,qty);return}
   if(t.dataset.qty){qty=Math.max(1,qty+ +t.dataset.qty);document.getElementById("qty").textContent=qty;return}
